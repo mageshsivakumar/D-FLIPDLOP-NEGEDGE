@@ -28,17 +28,43 @@ Next state of D flip-flop is always equal to data input, D for every positive tr
 
 **Procedure**
 
+1.Define Module: Define a Verilog module for the D flip-flop with inputs (D, CLK) and outputs (Q, Q_bar).
+
+2.Declare Inputs and Outputs: Declare input and output ports for the module.
+
+3.Implement Flip-Flop Logic: Write Verilog code to implement the D flip-flop logic based on its functional table. Use a synchronous always @(posedge CLK) block to trigger the flip-flop on the positive edge of the clock signal.
+
+4.Simulate Using Testbench: Write a Verilog testbench to simulate the behavior of the D flip-flop under different input conditions.
+
+5.Apply Input Stimuli: In the testbench, apply various combinations of input stimuli (D, CLK) to cover all possible input states.
+
+6.Verify Output Behavior: Verify that the output behavior of the D flip-flop matches the expected behavior defined by its functional table.
+
+7.Check for Race Conditions: Ensure that there are no race conditions or undefined states in the design by analyzing the timing and sequence of input changes.
+
+
+
 /* write all the steps invloved */
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+module d_ff_neg_edge (d, clk, rst, q); input d, clk, rst; output reg q;
+
+always @(negedge clk or posedge rst) begin if (rst) q <= 0; // Reset the flip-flop else q <= d; // D input is passed to Q on the negative clock edge end endmodule
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by:MAGESH S RegisterNumber:24900241
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+![Screenshot 2025-01-03 140825](https://github.com/user-attachments/assets/07fdab59-4c7c-4eb5-9f65-e4718608617d)
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![Screenshot 2025-01-03 140832](https://github.com/user-attachments/assets/9e983c9a-8e55-4864-a832-15ea2fb523a4)
+
+
 
 **RESULTS**
+
+Thus the D flipflop is implemented using verilog and validated their functionality using their functional tables
